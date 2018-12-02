@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os/exec"
+	"strings"
 )
 
 var (
@@ -14,6 +15,9 @@ var (
 
 type Img struct {
 	Path string `json:"path"`
+}
+type NsfwResult struct {
+	Score string
 }
 
 func main() {
@@ -37,5 +41,25 @@ func imgHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Fprintf(w, fmt.Sprintf("error in Output():", fmt.Sprint(err)))
 	}
-	fmt.Fprintf(w, fmt.Sprintf("Result: %v", string(output)))
+	score := strings.Trim(after(string(output), "NSFW_SCORE="), " ")
+	result := &NsfwResult{Score: strings.TrimSuffix(score, "\n")}
+	json, _ := json.Marshal(result)
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(json)
+	//fmt.Fprintf(w, score)
+	//fmt.Fprintf(w, fmt.Sprintf("Result: %v", string(output)))
+
+}
+
+func after(value string, a string) string {
+	// Get substring after a string.
+	pos := strings.LastIndex(value, a)
+	if pos == -1 {
+		return ""
+	}
+	adjustedPos := pos + len(a)
+	if adjustedPos >= len(value) {
+		return ""
+	}
+	return value[adjustedPos:len(value)]
 }
