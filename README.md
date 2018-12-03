@@ -8,11 +8,12 @@ Yahoo's repo using Caffe:cpu as neural network, to recognize Not Safe For work i
 3. Start the container `docker run -d -p 8080:8080 github.com/stefanolsenn/nsfw`
 4. Create a POST-request against localhost:8080/ with payload:
   `{"path": "URL_TO_IMG"}`
-  reponse will be a json object with `{"score": string}`
+  response will be a json object with `{"Score": string}`
 
 ## Notes
-There is currently no validation of the url nor if it is a picture. The program will most likely fail. Pull requests welcome!
+There is currently no validation of the url nor the http stream's datatype. If the url isn't pointing to a image, the program wil most likely break. Feel free to submit a pull request :)
   
 ### Credits
 Copyright 2016, Yahoo Inc.
+
 Copyright (c) 2014-2017 The Regents of the University of California (Regents)
