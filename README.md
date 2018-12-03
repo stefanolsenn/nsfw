@@ -16,6 +16,6 @@ There is currently no validation of the url nor the http stream's datatype. If t
 It was just a little side-project and isn't tweaked to production. The response time is quite heavy (700-1500ms) on the vm with 1 core assigned. The pretrained model could be optimized by using https://github.com/TechnikEmpire/NsfwSqueezenet to decrease the response time, or by scaling the vm vertically.
   
 ### Credits
-Copyright 2016, Yahoo Inc.
+Copyright 2016, Yahoo Inc. https://github.com/yahoo/open_nsfw
 
-Copyright (c) 2014-2017 The Regents of the University of California (Regents)
+Copyright (c) 2014-2017 The Regents of the University of California (Regents) https://github.com/BVLC/caffe
