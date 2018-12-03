@@ -12,6 +12,8 @@ Yahoo's repo using Caffe:cpu as neural network, to recognize Not Safe For work i
 
 ## Notes
 There is currently no validation of the url nor the http stream's datatype. If the url isn't pointing to a image, the program wil most likely break. Feel free to submit a pull request :)
+
+It was just a little side-project and isn't tweeked to production, the response time is quite heavy (700-1500ms). The pretrained model could be optimized by using https://github.com/TechnikEmpire/NsfwSqueezenet to decrease the response time.
   
 ### Credits
 Copyright 2016, Yahoo Inc.
