@@ -46,9 +46,6 @@ func imgHandler(w http.ResponseWriter, r *http.Request) {
 	json, _ := json.Marshal(result)
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(json)
-	//fmt.Fprintf(w, score)
-	//fmt.Fprintf(w, fmt.Sprintf("Result: %v", string(output)))
-
 }
 
 func after(value string, a string) string {
